@@ -45,12 +45,9 @@ git clone https://github.com/Zilean12/RESTful-API.git
 cd RESTful-API
 ```
 
-### 2. Backend Setup
+### 2. file Setup
 
 ```bash
-# Navigate to backend directory
-cd backend
-
 # Install dependencies
 npm install
 
@@ -63,16 +60,31 @@ cp .env.example .env
 Create a `.env` file in the `backend` directory:
 
 ```env
+# Server Configuration
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/yourdatabase
 JWT_SECRET=your_very_secret_and_long_random_string
 NODE_ENV=development
+
+# Google OAuth Configuration
+GOOGLE_CLIENT_ID=your_google_oauth_client_id
+GOOGLE_CLIENT_SECRET=your_google_oauth_client_secret
+GOOGLE_CALLBACK_URL=http://localhost:5000/api/auth/google/callback
 ```
+
+### Google OAuth Setup
+
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select an existing one
+3. Navigate to "APIs & Services" > "Credentials"
+4. Create a new OAuth 2.0 Client ID
+5. Set up the authorized redirect URIs
+6. Copy the Client ID and Client Secret into your `.env` file
 
 ### 4. Run the Application
 
 ```bash
-# Start the backend server
+# Start the application
 npm start
 ```
 
@@ -121,6 +133,7 @@ npm start
 ## 📜 License
 
 This project is open-source and available under the MIT License.
+
 
 ## 🌟 Contributing
 
