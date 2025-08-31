@@ -1,3 +1,7 @@
 node_modules
 .env
 # src/config/constants.js
+
+# Client build files
+/client/build
+/client/node_modules

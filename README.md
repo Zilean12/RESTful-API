@@ -31,7 +31,14 @@ A comprehensive RESTful API built with the MERN stack, offering robust authentic
 
 ## 🛠️ Technology Stack
 
-- Backend: Node.js, Express.js
+**Frontend:**
+- React.js with modern hooks
+- React Router for navigation
+- Axios for API communication
+- Responsive CSS design
+
+**Backend:**
+- Node.js, Express.js
 - Database: MongoDB
 - Authentication: JWT (JSON Web Tokens)
 - Password Encryption: Bcrypt
@@ -51,24 +58,25 @@ git clone https://github.com/Zilean12/RESTful-API.git
 cd RESTful-API
 ```
 
-### 2. file Setup
+### 2. Install Dependencies
 
 ```bash
-# Install dependencies
+# Install backend dependencies
 npm install
 
-# Create environment variables
-cp .env.example .env
+# Install frontend dependencies
+cd client && npm install
+cd ..
 ```
 
 ### 3. Configure Environment Variables
 
-Create a `.env` file in the `backend` directory:
+Create a `.env` file in the root directory:
 
 ```env
 # Server Configuration
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/yourdatabase
+PORT=3000
+MONGODB_URI=mongodb://localhost:27017/mern-api
 JWT_SECRET=your_very_secret_and_long_random_string
 NODE_ENV=development
 
@@ -89,10 +97,45 @@ GOOGLE_CALLBACK_URL=http://localhost:5000/api/auth/google/callback
 
 ### 4. Run the Application
 
+### 4. Run the Application
+
+**Development (with both frontend and backend):**
 ```bash
-# Start the application
+# Run both frontend and backend concurrently
+npm run dev:full
+```
+
+**Backend only:**
+```bash
+npm run dev
+```
+
+**Frontend only:**
+```bash
+npm run client
+```
+
+**Production:**
+```bash
+# Build frontend
+npm run build
+
+# Start production server
 npm start
 ```
+
+The frontend will be available at `http://localhost:3001` and backend at `http://localhost:3000` in development.
+
+## 🎨 Frontend Features
+
+- **Modern React App** with functional components and hooks
+- **Responsive Design** that works on all devices
+- **Authentication UI** with login and registration forms
+- **Protected Routes** with automatic redirects
+- **User Dashboard** showing user management features
+- **Profile Management** with update and delete functionality
+- **Google OAuth Integration** (configure in .env)
+- **Error Handling** with user-friendly messages
 
 ## 🌐 API Endpoints
 
