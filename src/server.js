@@ -5,6 +5,7 @@ const connectDB = require('./config/db');
 const { handleErrors } = require('./utils/errorHandler');
 const authRoutes = require('./routes/auth');
 const postRoutes = require('./routes/posts');
+const userRoutes = require('./routes/users');
 
 const app = express();
 
@@ -17,8 +18,9 @@ app.use(express.json());
 app.use(passport.initialize());
 
 // Routes
-app.use('/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
+app.use('/api/users', userRoutes);
 
 // Error handling
 app.use(handleErrors);

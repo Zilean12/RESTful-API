@@ -45,3 +45,30 @@ exports.googleCallback = (req, res) => {
   const token = generateToken(req.user.id);
   res.json({ token });
 };
+
+exports.getMe = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user.id).select('-password');
+    
+    if (!user) {
+      throw new AppError('User not found', 404);
+    }
+    
+    res.json(user);
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.logout = async (req, res, next) => {
+  try {
+    // For JWT-based auth, logout is typically handled client-side
+    // by removing the token. Here we just send a success response.
+    res.json({
+      success: true,
+      message: 'Successfully logged out'
+    });
+  } catch (error) {
+    next(error);
+  }
+};
