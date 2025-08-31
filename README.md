@@ -123,6 +123,8 @@ npm start
 | `PUT` | `/api/posts/:postId/comments/:id` | Update a comment (protected) |
 | `DELETE` | `/api/posts/:postId/comments/:id` | Delete a comment (protected) |
 
+**Note:** All comment endpoints require authentication. Users can only update or delete their own comments.
+
 ## 🧪 Postman Testing
 
 1. Register a new user
@@ -130,6 +132,14 @@ npm start
 3. Use token in Authorization header for protected routes
    - Header Key: `Authorization`
    - Header Value: `Bearer your_jwt_token`
+
+### Testing Comments System
+
+1. Create a post first using `POST /api/posts`
+2. Add comments to the post using `POST /api/posts/:postId/comments`
+3. View comments using `GET /api/posts/:postId/comments`
+4. Update your comments using `PUT /api/posts/:postId/comments/:id`
+5. Delete your comments using `DELETE /api/posts/:postId/comments/:id`
 
 ## 🛡️ Security Features
 
