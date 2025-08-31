@@ -32,9 +32,16 @@ const idValidation = [
   handleValidationErrors
 ];
 
+const userUpdateValidation = [
+  body('name').optional().trim().notEmpty().withMessage('Name cannot be empty'),
+  body('email').optional().isEmail().withMessage('Invalid email address'),
+  handleValidationErrors
+];
+
 module.exports = {
   registerValidation,
   loginValidation,
   postValidation,
-  idValidation
+  idValidation,
+  userUpdateValidation
 };
