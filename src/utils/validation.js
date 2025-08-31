@@ -38,10 +38,16 @@ const userUpdateValidation = [
   handleValidationErrors
 ];
 
+const commentValidation = [
+  body('content').trim().notEmpty().withMessage('Content is required'),
+  handleValidationErrors
+];
+
 module.exports = {
   registerValidation,
   loginValidation,
   postValidation,
   idValidation,
-  userUpdateValidation
+  userUpdateValidation,
+  commentValidation
 };

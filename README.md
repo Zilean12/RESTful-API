@@ -17,6 +17,12 @@ A comprehensive RESTful API built with the MERN stack, offering robust authentic
   - User profile management
   - Role-based access control
 
+- 💬 **Comment System**
+  - Add comments to posts
+  - Update and delete own comments
+  - View all comments on posts
+  - Author-based comment authorization
+
 - 🔒 **Security Measures**
   - JWT token authentication
   - Bcrypt password hashing
@@ -107,6 +113,15 @@ npm start
 | `GET` | `/api/users/:id` | Get user by ID (protected) |
 | `PUT` | `/api/users/:id` | Update user (protected) |
 | `DELETE` | `/api/users/:id` | Delete user (protected) |
+
+### Comment Management Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/posts/:postId/comments` | Get all comments for a post (protected) |
+| `POST` | `/api/posts/:postId/comments` | Create a new comment on a post (protected) |
+| `PUT` | `/api/posts/:postId/comments/:id` | Update a comment (protected) |
+| `DELETE` | `/api/posts/:postId/comments/:id` | Delete a comment (protected) |
 
 ## 🧪 Postman Testing
 
