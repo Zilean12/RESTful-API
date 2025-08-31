@@ -10,6 +10,9 @@ const {
   deletePost
 } = require('../controllers/postController');
 
+// Import comment routes
+const commentRoutes = require('./comments');
+
 router.use(authenticateJWT);
 
 router.route('/')
@@ -20,5 +23,8 @@ router.route('/:id')
   .get(idValidation, getPost)
   .put([idValidation, postValidation], updatePost)
   .delete(idValidation, deletePost);
+
+// Nested comment routes
+router.use('/:postId/comments', commentRoutes);
 
 module.exports = router;
